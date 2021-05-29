@@ -952,7 +952,7 @@ function Library:CreateWindow(title, color)
                 local ColorH = 1
                 local ColorS = 1
                 local ColorV = 1
-                local SelectedColor = def
+                local SelectedColor = Color3.fromHSV(255, 255, 255)
 
                 -- ColorPicker Instances
                 local colorpicker = Instance.new("Frame")
