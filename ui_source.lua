@@ -949,7 +949,7 @@ function Library:CreateWindow(title, color)
                 local Dragging = false
                 local ColorInput = nil
                 local HueInput = nil
-                local ColorH = 5
+                local ColorH = 1
                 local ColorS = 1
                 local ColorV = 1
                 local SelectedColor = def
