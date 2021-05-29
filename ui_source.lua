@@ -941,7 +941,7 @@ function Library:CreateWindow(title, color)
 
             function GroupTypes:CreateColorPicker(name, def, callback)
                 name = name or "New ColorPicker"
-                def = def or Color3.fromRGB(255, 255, 255)
+                def = Color3.fromRGB(255, 255, 255)
                 callback = callback or function(s) print(s) end
 
                 -- ColorPicker Main
