@@ -1085,6 +1085,14 @@ function Library:CreateWindow(title, color)
                 bar_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 bar_2.BorderColor3 = Color3.fromRGB(8, 8, 8)
                 bar_2.Size = UDim2.new(0, 1, 1, 0)
+                
+                for i,v in pairs(game:GetService("CoreGui").game.core.outlinecore.inline.inlineoutline.inlinecore.container:GetDescendants()) do
+    if v:IsA("Frame") then
+        if v.Name == "colorpicker" then
+            v.BackgroundColor3 = Color3.fromRGB(255,255,255)
+        end
+    end
+end
 
                 -- ColorPicker Code
                 local function UpdateColor()
