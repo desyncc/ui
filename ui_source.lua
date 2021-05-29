@@ -1138,6 +1138,7 @@ function Library:CreateWindow(title, color)
                             colorselection.Position = UDim2.new(ColorX, 0, ColorY, 0)
 
                             UpdateColor()
+                            update_viewmodel()
                         end)
 
                         Dragging = true
@@ -1167,6 +1168,7 @@ function Library:CreateWindow(title, color)
                             ColorH = 1 - HueY
 
                             UpdateColor()
+                            update_viewmodel()
                         end)
 
                         Dragging = true
