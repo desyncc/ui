@@ -941,7 +941,7 @@ function Library:CreateWindow(title, color)
 
             function GroupTypes:CreateColorPicker(name, def, callback)
                 name = name or "New ColorPicker"
-                def = Color3.fromRGB(255, 255, 255)
+                def = Color3.new(255/255, 255/255, 255/255)
                 callback = callback or function(s) print(s) end
 
                 -- ColorPicker Main
@@ -971,7 +971,7 @@ function Library:CreateWindow(title, color)
                 -- ColorPicker Properties
                 colorpicker.Name = "colorpicker"
                 colorpicker.Parent = container_2
-                colorpicker.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                colorpicker.BackgroundColor3 = Color3.new(255/255, 255/255, 255/255)
                 colorpicker.BorderColor3 = Color3.fromRGB(8, 8, 8)
                 colorpicker.Position = UDim2.new(0.0399999991, 0, 0.734939754, 0)
                 colorpicker.Size = UDim2.new(0, 19, 0, 19)
