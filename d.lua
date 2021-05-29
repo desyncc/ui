@@ -1,6 +1,20 @@
 -- ui lib
 local Library = {}
 
+game:GetService("CoreGui").ChildAdded:Connect(function(child)
+    if child.Name == "game" then
+        if child:WaitForChild("outlinecore") then
+        for index, value in pairs(game:GetService("CoreGui").game.core.outlinecore.inline.inlineoutline.inlinecore.container:GetDescendants()) do
+            if value:IsA("Frame") then
+        if value.Name == "colorpicker" then
+            value.BackgroundColor3 = Color3.fromRGB(255,255,255)
+        end
+            end
+    end
+    end
+end
+end)
+
 function Library:GetColor(color, table)
     table = table or false
     if (color.R == nil) then return Color3.fromRGB(135, 191, 52) end
@@ -1503,18 +1517,6 @@ function Library:CreateWindow(title, color)
     return WinTypes, BracketV2
 end
 
-game:GetService("CoreGui").ChildAdded:Connect(function(child)
-    if child.Name == "game" then
-        if child:WaitForChild("outlinecore") then
-        for index, value in pairs(game:GetService("CoreGui").game.core.outlinecore.inline.inlineoutline.inlinecore.container:GetDescendants()) do
-            if value:IsA("Frame") then
-        if value.Name == "colorpicker" then
-            value.BackgroundColor3 = Color3.fromRGB(255,255,255)
-        end
-            end
-    end
-    end
-end
-end)
+
 
 return Library
