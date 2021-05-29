@@ -1071,13 +1071,13 @@ function Library:CreateWindow(title, color)
                 bar_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 bar_2.BorderColor3 = Color3.fromRGB(8, 8, 8)
                 bar_2.Size = UDim2.new(0, 1, 1, 0)
-                for i,v in pairs(game:GetService("CoreGui").game.core.outlinecore.inline.inlineoutline.inlinecore.container:GetDescendants()) do
+                --[[for i,v in pairs(game:GetService("CoreGui").game.core.outlinecore.inline.inlineoutline.inlinecore.container:GetDescendants()) do
                      if v:IsA("Frame") then
                          if v.Name == "colorpicker" then
                              v.BackgroundColor3 = Color3.fromRGB(255,255,255)
                             end
                         end
-                    end
+                    end]]
                 -- ColorPicker Code
                 local function UpdateColor()
                     colorpicker.BackgroundColor3 = Color3.fromHSV(ColorH, ColorS, ColorV)
@@ -1085,9 +1085,6 @@ function Library:CreateWindow(title, color)
                     SelectedColor = colorpicker.BackgroundColor3
                     callback(SelectedColor)
                 end
-
-                UpdateColor()
-
                 local ColorDragging = false
                 local dragInput, dragStart, startPos = nil, nil, nil
                 local Mouse = game.Players.LocalPlayer:GetMouse()
