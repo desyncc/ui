@@ -668,6 +668,7 @@ function Library:CreateWindow(title, color)
                 value.TextSize = 14.000
                 value.TextStrokeTransparency = 0.000
                 value.TextXAlignment = 1
+                value.Position = UDim2.new(0, 10, 0, 3)
 
                 -- Slider Code
                 bar.Size = UDim2.new(def / max, 0, 1, 0)
