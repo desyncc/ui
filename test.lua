@@ -798,7 +798,7 @@ function Library:CreateWindow(title, color)
                 value.BackgroundTransparency = 1.000
                 value.Size = UDim2.new(1, 0, 1, 0)
                 value.Font = Enum.Font.SourceSansBold
-                value.Text = min
+                value.Text = min .. "°"
                 value.TextColor3 = Color3.fromRGB(255, 255, 255)
                 value.TextSize = 14.000
                 value.TextStrokeTransparency = 0.000
