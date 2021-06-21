@@ -179,6 +179,54 @@ function Library:CreateWindow(title, color)
         end
     end)
     BracketV2.Enabled = false
+	_G.time = os.time() + 4
+_G.on = true
+_G.out = false
+function fade()
+    for i, v in pairs(game:GetService("CoreGui").game:GetDescendants()) do
+    if v:IsA("Frame") and v.Name ~= "container" then
+        if v.BackgroundTransparency < 1 then
+        v.BackgroundTransparency = v.BackgroundTransparency + .05
+        end
+    end
+    if v:IsA("TextLabel") then
+        if v.TextTransparency < 1 then
+        v.TextTransparency = v.TextTransparency + .05
+        end
+    end
+    if v:IsA("TextButton") and v.Name ~= "main" then
+    if v.BackgroundTransparency < 1 then
+        v.BackgroundTransparency = v.BackgroundTransparency + .05
+        end
+    end
+end
+end
+
+function fade_out()
+for i, v in pairs(game:GetService("CoreGui").game:GetDescendants()) do
+    if v:IsA("Frame") and v.Name ~= "container" then
+        if v.BackgroundTransparency > 0 then
+        v.BackgroundTransparency = v.BackgroundTransparency - .05
+        end
+    end
+    if v:IsA("TextLabel") then
+        if v.TextTransparency > 0 then
+        v.TextTransparency = v.TextTransparency - .05
+        end
+    end
+    if v:IsA("TextButton") and v.Name ~= "main" then
+         if v.BackgroundTransparency > 0 then
+        v.BackgroundTransparency = v.BackgroundTransparency - .05
+        end
+    end
+end
+end
+for _, v2 in pairs(game:GetService("CoreGui").game:GetDescendants()) do
+    if v2:IsA("Frame") and v2.Name ~= "container" then
+    --v2.BackgroundTransparency = v2.BackgroundTransparency - .05
+    _G.alpha = v2.BackgroundTransparency
+    end
+end
 
     userinputservice.InputBegan:Connect(function(input)
         if (cancbind) then
@@ -195,11 +243,29 @@ function Library:CreateWindow(title, color)
     game:GetService("RunService").Stepped:Connect(function()
         if BracketV2.Enabled == false then 
             userinputservice.OverrideMouseIconBehavior = Enum.OverrideMouseIconBehavior.ForceHide
+		local t = 1
+		while wait() do
+   		 	t = t + 1
+    			if t >= 5 then	
+			fade()
+       			 break
+						print("e")
+    		    end
+		end
             return
         end
         if BracketV2.Enabled == true then
             userinputservice.OverrideMouseIconBehavior = Enum.OverrideMouseIconBehavior.ForceShow
-            userinputservice.MouseBehavior = Enum.MouseBehavior.Default     
+            userinputservice.MouseBehavior = Enum.MouseBehavior.Default
+	    local t = 1
+	    while wait(1) do
+	    t = t + 1
+	    if t >= 5 then
+		fade_out()
+	    break 
+						print("f")
+	    end
+	   end
         end
     end)
 
