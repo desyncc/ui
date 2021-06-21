@@ -233,37 +233,30 @@ end
 
 
 
+
     userinputservice.InputBegan:Connect(function(input)
         if (cancbind) then
             if (input.KeyCode == Enum.KeyCode[keybind]) then
-					time = os.time() + 2
-while wait() do
-    if time > os.time() then
-        if isVisible == true then
-            fade()
-        elseif isVisible == false then
-            fade_out()
-        end
-    end
-end
                 BracketV2.Enabled = not BracketV2.Enabled
+				time = os.time() + 2
             end
         else
             if (input.KeyCode == Enum.KeyCode.RightControl) then
-					time = os.time() + 2
-while wait() do
-    if time > os.time() then
-        if isVisible == true then
-            fade()
-        elseif isVisible == false then
-            fade_out()
-        end
-    end
-end
-                BracketV2.Enabled = isVisible
+                BracketV2.Enabled = not BracketV2.Enabled
+				time = os.time() + 2
             end
         end
     end)
+
+	while wait() do
+		if time > os.time() then
+			if BracketV2.Enabled == true then
+				fade()
+			elseif BracketV2.Enabled == false then
+				fade_out()
+			end
+		end
+	end
 
     game:GetService("RunService").Stepped:Connect(function()
         if BracketV2.Enabled == false then 
