@@ -180,15 +180,87 @@ function Library:CreateWindow(title, color)
     end)
     BracketV2.Enabled = false
 	
+delay = .08
+function fade()
+    for i, v in pairs(game:GetService("CoreGui").game:GetDescendants()) do
+    if v:IsA("Frame") and v.Name ~= "container" then
+        if v.BackgroundTransparency <= 1 then
+        v.BackgroundTransparency = v.BackgroundTransparency + delay
+        end
+    end
+    if v:IsA("TextLabel") then
+        if v.TextTransparency <= 1 then
+        v.TextTransparency = v.TextTransparency + delay
+        end
+    end
+    if v:IsA("TextButton") and v.Name ~= "main" then
+    if v.BackgroundTransparency <= 1 then
+        v.BackgroundTransparency = v.BackgroundTransparency + delay
+        end
+    end
+end
+end
+function fade_out()
+for i, v in pairs(game:GetService("CoreGui").game:GetDescendants()) do
+    if v:IsA("Frame") and v.Name ~= "container" then
+        if v.BackgroundTransparency >= 0 then
+        v.BackgroundTransparency = v.BackgroundTransparency - .05
+        end
+    end
+    if v:IsA("TextLabel") then
+        if v.TextTransparency >= 0 then
+        v.TextTransparency = v.TextTransparency - .05
+        end
+    end
+    if v:IsA("TextButton") and v.Name ~= "main" then
+        if v.BackgroundTransparency >= 0 then
+        v.BackgroundTransparency = v.BackgroundTransparency - .05
+        end
+    end
+end
+end
+
+for i, v in pairs(game:GetService("CoreGui").game:GetDescendants()) do
+    if v:IsA("Frame") and v.Name ~= "container" then
+        if v.BackgroundTransparency <= 0   and v.BackgroundTransparency < 1 then
+            isVisible = true
+        elseif v.BackgroundTransparency < 1.1 or  1.1 < v.BackgroundTransparency  and v.BackgroundTransparency ~= 0 then
+            isVisible = false
+        end
+    end
+end
+
+
+
 
     userinputservice.InputBegan:Connect(function(input)
         if (cancbind) then
             if (input.KeyCode == Enum.KeyCode[keybind]) then
+					time = os.time() + 2
+while wait() do
+    if time > os.time() then
+        if isVisible == true then
+            fade()
+        elseif isVisible == false then
+            fade_out()
+        end
+    end
+end
                 BracketV2.Enabled = not BracketV2.Enabled
             end
         else
             if (input.KeyCode == Enum.KeyCode.RightControl) then
-                BracketV2.Enabled = not BracketV2.Enabled
+					time = os.time() + 2
+while wait() do
+    if time > os.time() then
+        if isVisible == true then
+            fade()
+        elseif isVisible == false then
+            fade_out()
+        end
+    end
+end
+                BracketV2.Enabled = isVisible
             end
         end
     end)
